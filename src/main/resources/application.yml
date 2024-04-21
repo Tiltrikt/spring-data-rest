@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: messaging
+
+  main:
+    banner-mode: off
+
+  profiles:
+    active: debug
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/messaging
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  data:
+    rest:
+      base-path: /api

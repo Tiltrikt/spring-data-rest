@@ -1,0 +1,30 @@
+dependencyResolutionManagement {
+  repositories {
+    mavenCentral()
+    mavenLocal()
+  }
+}
+
+rootProject.name = 'teslasoft-messaging'
+
+[
+
+].forEach {
+  include it
+}
+
+rootProject.children.each { project ->
+  {
+    setProjectBuildFileName(project)
+  }
+}
+
+void setProjectBuildFileName(project) {
+  project.buildFileName = "${project.name}.gradle"
+  project.children.each { subproject ->
+    {
+      setProjectBuildFileName(subproject)
+    }
+  }
+}
+
